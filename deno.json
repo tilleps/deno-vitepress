@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "checkJs": true
+  },
+  "nodeModulesDir": "auto",
+  "tasks": {
+    "clean": "rm -Rf var & rm -Rf node_modules",
+    "docs:dev": "deno run -A npm:vitepress dev config",
+    "docs:build": "deno run -A npm:vitepress build config",
+    "docs:preview": "deno run -A npm:vitepress preview config"
+  },
+  "fmt": {
+    "proseWrap": "preserve"
+  },
+  "imports": {
+    "cytoscape": "npm:cytoscape@^3.31.1",
+    "cytoscape-cose-bilkent": "npm:cytoscape-cose-bilkent@^4.1.0",
+    "markdown-it-task-lists": "npm:markdown-it-task-lists@^2.1.1",
+    "mermaid": "npm:mermaid@^11.5.0",
+    "vitepress": "npm:vitepress@^2.0.0-alpha.4",
+    "vitepress-plugin-mermaid": "npm:vitepress-plugin-mermaid@^2.0.17",
+    "vue": "npm:vue@^3.5.13"
+  }
+}
