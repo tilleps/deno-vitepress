@@ -162,8 +162,71 @@ body {
 }
 
 :root {
-  --vp-nav-bg-color: transparent;
-  --vp-sidebar-bg-color: transparent;
+  --vp-nav-bg-color: var(--vp-c-bg);
+  --vp-sidebar-bg-color: var(--vp-c-bg);
+}
+
+/**
+ * Update Header and Navigation widths to use full window widths
+ * -------------------------------------------------------------------------- */
+
+.VPNavBar {
+  background-color: var(--vp-nav-bg-color);
+  .container {
+    max-width: 100%;
+  }
+}
+
+.VPNavScreen {
+  .container {
+    max-width: 480px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPNavBar.has-sidebar {
+    .title {
+      border-bottom-color: transparent;
+      padding: 0 0 0 0 !important;
+    }
+  }
+  .VPNavBarTitle.has-sidebar {
+    .title {
+      padding-left: 32px !important;
+      border-bottom-color: transparent;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  /* Align the sidebar navigation and "On this page" to the edges */
+  .VPContent.has-sidebar {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .VPDoc {
+    .container {
+      padding-left: var(--vp-sidebar-width);
+      .content-container {
+        max-width: calc(
+          var(--vp-layout-max-width) - var(--vp-sidebar-width) - 224px
+        ) !important;
+      }
+    }
+  }
+
+  .VPSidebar {
+    padding-left: 32px !important;
+    width: auto !important;
+  }
+
+  .VPNavBar.has-sidebar {
+    .content {
+      padding-left: 0 !important;
+      padding-right: 32px !important;
+    }
+  }
 }
 
 /**
