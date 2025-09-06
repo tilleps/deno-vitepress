@@ -2,7 +2,9 @@
 
 This page demonstrates some of the built-in markdown extensions provided by VitePress.
 
-## Syntax Highlighting
+## Code Blocks
+
+### Syntax Highlighting
 
 VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
 
@@ -31,6 +33,94 @@ export default {
   }
 }
 ```
+
+### Adding title
+
+**Input**
+
+````markdown
+```js title="config.js"
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+  // ...
+};
+
+export default config;
+```
+````
+
+**Output**
+
+```js title="config.js"
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+  // ...
+};
+
+export default config;
+```
+
+### Code groups
+
+**Input**
+
+````markdown
+::: code-group
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+  // ...
+};
+
+export default config;
+```
+
+```ts [config.ts]
+import type { UserConfig } from "vitepress";
+
+const config: UserConfig = {
+  // ...
+};
+
+export default config;
+```
+
+:::
+````
+
+**Output**
+
+::: code-group
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+  // ...
+};
+
+export default config;
+```
+
+```ts [config.ts]
+import type { UserConfig } from "vitepress";
+
+const config: UserConfig = {
+  // ...
+};
+
+export default config;
+```
+
+:::
 
 ## Custom Containers
 

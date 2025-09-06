@@ -56,8 +56,41 @@ export default withMermaid({
   markdown: {
     config: function (md) {
       md.use(taskLists);
+      applyTitleFenceRule(md);
     },
   },
   mermaid: {},
   mermaidPlugin: {},
 });
+
+/**
+ * @type {Function}
+ */
+function applyTitleFenceRule(md) {
+  const defaultFence = md.renderer.rules.fence;
+
+  md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
+    const token = tokens[idx];
+    const info = token.info ? md.utils.unescapeAll(token.info).trim() : "";
+
+    // Update token.info so the language label is preserved
+    const langInfo = info.replace(/title="[^"]*"/, "").trim();
+    token.info = langInfo;
+
+    const titleMatch = info.match(/title="([^"]+)"/);
+    const title = titleMatch ? titleMatch[1] : null;
+
+    const codeBlock = defaultFence
+      ? defaultFence(tokens, idx, options, env, slf)
+      : `<pre><code>${md.utils.escapeHtml(token.content)}</code></pre>`;
+
+    if (title) {
+      return `<div class="code-block">
+  <div class="code-block-title">${md.utils.escapeHtml(title)}</div>
+  ${codeBlock}
+</div>`;
+    }
+
+    return codeBlock;
+  };
+}

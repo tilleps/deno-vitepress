@@ -160,3 +160,34 @@ body {
     overflow: auto;
   }
 }
+
+:root {
+  --vp-nav-bg-color: transparent;
+  --vp-sidebar-bg-color: transparent;
+}
+
+/**
+ * Component: Code Block Titles
+ * -------------------------------------------------------------------------- */
+.vp-doc {
+  .code-block {
+    margin: 1em 0;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .code-block-title {
+    background-color: var(--vp-code-block-bg);
+    padding: 1em 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border-bottom: 1px solid var(--vp-c-divider);
+    color: var(--vp-c-text-2);
+  }
+
+  .code-block-title + div[class*="language-"] {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
