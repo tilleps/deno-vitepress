@@ -136,3 +136,27 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+/**
+ * Update base font size
+ * -------------------------------------------------------------------------- */
+:root {
+  --vp-font-size-base: 13px; /* Default is 16px, change as needed */
+  --vp-code-font-size: 13px;
+}
+
+body {
+  font-size: var(--vp-font-size-base);
+  line-height: 15px;
+}
+
+.vp-doc {
+  p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  pre {
+    overflow: auto;
+  }
+}
