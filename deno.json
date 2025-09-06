@@ -13,12 +13,16 @@
     "proseWrap": "preserve"
   },
   "imports": {
+    "@braintree": "npm:@braintree",
+    "@braintree/sanitize-url": "npm:@braintree/sanitize-url",
     "cytoscape": "npm:cytoscape@^3.31.1",
     "cytoscape-cose-bilkent": "npm:cytoscape-cose-bilkent@^4.1.0",
+    "dayjs": "npm:dayjs",
+    "debug": "npm:debug",
     "markdown-it-task-lists": "npm:markdown-it-task-lists@^2.1.1",
-    "mermaid": "npm:mermaid@^11.5.0",
-    "vitepress": "npm:vitepress@^2.0.0-alpha.4",
+    "mermaid": "npm:mermaid@^11.8.0",
+    "vitepress": "npm:vitepress@^2.0.0-alpha.12",
     "vitepress-plugin-mermaid": "npm:vitepress-plugin-mermaid@^2.0.17",
-    "vue": "npm:vue@^3.5.13"
+    "vue": "npm:vue@^3.5.17"
   }
 }
