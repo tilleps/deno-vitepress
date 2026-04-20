@@ -1,4 +1,4 @@
-# VitePress + Deno
+# VitePress + Deno + TailwindCSS
 
 This repo is running example of VitePress with Deno with an addition of the following modifications:
 
@@ -39,4 +39,27 @@ deno task docs:build
 
 ```sh
 deno task docs:preview
+```
+
+### Integrating with TailwindCSS
+
+```sh
+deno install npm:tailwindcss npm:@tailwindcss/vite
+```
+
+Add Tailwind to Vite config
+
+```sh
+import tailwindcss from "@tailwindcss/vite";
+
+...
+
+  vite: {
+    plugins: [
+      // @ts-ignore
+      tailwindcss(),
+    ],
+  }
+
+...
 ```
