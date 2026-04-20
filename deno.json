@@ -15,12 +15,14 @@
   "imports": {
     "@braintree": "npm:@braintree",
     "@braintree/sanitize-url": "npm:@braintree/sanitize-url",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.2.2",
     "cytoscape": "npm:cytoscape@^3.31.1",
     "cytoscape-cose-bilkent": "npm:cytoscape-cose-bilkent@^4.1.0",
     "dayjs": "npm:dayjs",
     "debug": "npm:debug",
     "markdown-it-task-lists": "npm:markdown-it-task-lists@^2.1.1",
     "mermaid": "npm:mermaid@^11.8.0",
+    "tailwindcss": "npm:tailwindcss@^4.2.2",
     "vitepress": "npm:vitepress@^2.0.0-alpha.17",
     "vitepress-plugin-mermaid": "npm:vitepress-plugin-mermaid@^2.0.17",
     "vue": "npm:vue@^3.5.17"

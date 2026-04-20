@@ -119,3 +119,8 @@ body {
     margin-bottom: 0;
   }
 }
+
+/**
+ * Add TailwindCSS v4
+ */
+@import "tailwindcss";

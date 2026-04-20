@@ -7,6 +7,12 @@ import taskLists from "markdown-it-task-lists";
  */
 import { withMermaid } from "vitepress-plugin-mermaid";
 
+/*
+ * Add TailwindCSS Support
+ * @type {import('vitepress').Plugin}
+ */
+import tailwindcss from "@tailwindcss/vite";
+
 // https://vitepress.dev/reference/site-config
 export default withMermaid({
   srcDir: "../docs",
@@ -29,6 +35,10 @@ export default withMermaid({
         "@braintree": "@braintree/",
       },
     },
+    plugins: [
+      // @ts-ignore
+      tailwindcss(),
+    ],
   },
   title: "Personal Notes",
   description: "A VitePress Site",
@@ -64,11 +74,19 @@ export default withMermaid({
 });
 
 /**
- * @type {Function}
+ * @param {Object<string, any>} md
  */
 function applyTitleFenceRule(md) {
   const defaultFence = md.renderer.rules.fence;
 
+  /**
+   * @param {Object<string, any>} tokens
+   * @param {number} idx
+   * @param {any} env
+   * @param {any} options
+   * @param {any} slf
+   * @returns {string}
+   */
   md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
     const token = tokens[idx];
     const info = token.info ? md.utils.unescapeAll(token.info).trim() : "";
