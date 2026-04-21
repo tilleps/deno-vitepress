@@ -91,10 +91,6 @@ function applyTitleFenceRule(md) {
     const token = tokens[idx];
     const info = token.info ? md.utils.unescapeAll(token.info).trim() : "";
 
-    // Update token.info so the language label is preserved
-    const langInfo = info.replace(/title="[^"]*"/, "").trim();
-    token.info = langInfo;
-
     const titleMatch = info.match(/title="([^"]+)"/);
     const title = titleMatch ? titleMatch[1] : null;
 
@@ -103,10 +99,19 @@ function applyTitleFenceRule(md) {
       : `<pre><code>${md.utils.escapeHtml(token.content)}</code></pre>`;
 
     if (title) {
-      return `<div class="code-block">
-  <div class="code-block-title">${md.utils.escapeHtml(title)}</div>
-  ${codeBlock}
-</div>`;
+      return `
+        <div class="vp-code-group vp-adaptive-theme">
+        <div class="tabs">
+        <input type="radio" />
+        <label data-title="${md.utils.escapeHtml(title)}">${
+        md.utils.escapeHtml(title)
+      }</label>
+        </div>
+        <div class="blocks">
+          ${codeBlock}
+        </div>
+        </div>
+`;
     }
 
     return codeBlock;

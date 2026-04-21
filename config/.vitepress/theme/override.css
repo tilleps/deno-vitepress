@@ -97,6 +97,7 @@ body {
 /**
  * Component: Code Block Titles
  * -------------------------------------------------------------------------- */
+
 .vp-doc {
   .code-block {
     margin: 1em 0;
@@ -104,7 +105,20 @@ body {
     border-radius: 6px;
     overflow: hidden;
   }
+  .vp-code-block {
+    background-color: var(--vp-code-block-bg);
+    margin: 16px -24px;
+  }
 
+  .vp-code-block-title {
+    padding: 1em;
+  }
+
+  &:has(.code-block-title) div[class*="language-"] {
+    margin-top: 0;
+  }
+
+  /*
   .code-block-title {
     background-color: var(--vp-code-block-bg);
     padding: 1em 1em;
@@ -114,10 +128,12 @@ body {
     color: var(--vp-c-text-2);
   }
 
+
   .code-block-title + div[class*="language-"] {
     margin-top: 0;
     margin-bottom: 0;
   }
+    */
 }
 
 /**
